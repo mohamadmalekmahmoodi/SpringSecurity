@@ -1,6 +1,6 @@
-package com.example.springsecurityforeverytime.securityconfig.config;
+package com.example.springsecurityforeverytime.config;
 
-import com.example.springsecurityforeverytime.securityconfig.filter.JwtAuthenticationFilter;
+import com.example.springsecurityforeverytime.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,8 +29,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("", "").permitAll()
-                .and()
+                .requestMatchers("", "").permitAll().and()
                 .authorizeHttpRequests().requestMatchers("").authenticated()
                 .and()
                 .sessionManagement()

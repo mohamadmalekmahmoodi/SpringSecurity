@@ -1,4 +1,4 @@
-package com.example.springsecurityforeverytime.securityconfig.filter;
+package com.example.springsecurityforeverytime.filter;
 
 import com.example.springsecurityforeverytime.sevice.JwtUtil;
 import jakarta.servlet.FilterChain;
@@ -39,7 +39,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         jwt = authHeader.substring(7);
         username = jwtUtil.extractUsername(jwt);
-        if (username == null && SecurityContextHolder.getContext().getAuthentication() == null) {
+        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
             if (jwtUtil.isTokenValid(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken =

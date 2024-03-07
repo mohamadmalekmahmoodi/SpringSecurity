@@ -1,4 +1,4 @@
-package com.example.springsecurityforeverytime.securityconfig.config;
+package com.example.springsecurityforeverytime.config;
 
 import com.example.springsecurityforeverytime.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
